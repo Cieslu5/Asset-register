@@ -1,3 +1,4 @@
+import { FormatProvider } from '@repo/ui';
 import type { Metadata } from 'next';
 import { IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google';
 import { notFound } from 'next/navigation';
@@ -18,6 +19,8 @@ const plexMono = IBM_Plex_Mono({
   weight: ['400', '500'],
   variable: '--font-plex-mono',
 });
+
+const FORMAT_LOCALES = { pl: 'pl-PL', en: 'en-GB' } as const;
 
 interface LocaleLayoutProps {
   children: ReactNode;
@@ -42,7 +45,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <html lang={locale} className={`${plexSans.variable} ${plexMono.variable}`}>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <FormatProvider locale={FORMAT_LOCALES[locale]} timeZone="Europe/Warsaw">
+            {children}
+          </FormatProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
