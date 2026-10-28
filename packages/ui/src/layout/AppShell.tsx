@@ -1,23 +1,17 @@
 'use client';
 
 import { cva } from 'class-variance-authority';
-import { Menu, X, type LucideIcon } from 'lucide-react';
-import { useEffect, useId, useState, type ElementType, type ReactNode } from 'react';
+import { useEffect, useId, useState, type ReactNode } from 'react';
 import { Icon } from '../actions/Icon';
+import { IconButton } from '../actions/IconButton';
+import type { IconName } from '../actions/icons';
+import { RouterLink } from '../actions/LinkProvider';
 
 export interface AppShellNavItem {
   href: string;
   label: string;
-  icon: LucideIcon;
+  icon: IconName;
   current?: boolean;
-}
-
-interface NavLinkProps {
-  href: string;
-  className: string;
-  'aria-current'?: 'page' | undefined;
-  onClick: () => void;
-  children: ReactNode;
 }
 
 export interface AppShellProps {
@@ -27,8 +21,6 @@ export interface AppShellProps {
   openMenuLabel: string;
   closeMenuLabel: string;
   topBar?: ReactNode;
-  /** Np. `Link` z next/link, żeby nawigacja nie przeładowywała strony. */
-  linkComponent?: ElementType<NavLinkProps>;
   children: ReactNode;
 }
 
@@ -51,7 +43,6 @@ export function AppShell({
   openMenuLabel,
   closeMenuLabel,
   topBar,
-  linkComponent: LinkComponent = 'a',
   children,
 }: AppShellProps) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -71,16 +62,16 @@ export function AppShell({
       <aside className="border-line bg-surface lg:sticky lg:top-0 lg:flex lg:h-dvh lg:flex-col lg:border-r">
         <div className="flex h-14 items-center justify-between gap-2 border-b border-line px-4 lg:border-b-0">
           <div className="min-w-0 font-sans text-base font-semibold text-ink">{brand}</div>
-          <button
-            type="button"
-            className="inline-flex size-8 items-center justify-center rounded-md text-ink-muted hover:bg-surface-sunken hover:text-ink lg:hidden"
-            aria-expanded={menuOpen}
-            aria-controls={navId}
-            aria-label={menuOpen ? closeMenuLabel : openMenuLabel}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            <Icon icon={menuOpen ? X : Menu} />
-          </button>
+          <div className="lg:hidden">
+            <IconButton
+              icon={menuOpen ? 'x' : 'menu'}
+              label={menuOpen ? closeMenuLabel : openMenuLabel}
+              size="sm"
+              aria-expanded={menuOpen}
+              aria-controls={navId}
+              onClick={() => setMenuOpen((open) => !open)}
+            />
+          </div>
         </div>
         <nav
           id={navId}
@@ -90,15 +81,15 @@ export function AppShell({
           <ul className="flex flex-col gap-0.5">
             {navigation.map((item) => (
               <li key={item.href}>
-                <LinkComponent
+                <RouterLink
                   href={item.href}
                   className={navLink({ current: item.current ?? false })}
                   aria-current={item.current ? 'page' : undefined}
                   onClick={() => setMenuOpen(false)}
                 >
-                  <Icon icon={item.icon} />
+                  <Icon name={item.icon} />
                   <span className="truncate">{item.label}</span>
-                </LinkComponent>
+                </RouterLink>
               </li>
             ))}
           </ul>

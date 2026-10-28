@@ -1,4 +1,15 @@
-export { Icon, type IconProps, type LucideIcon } from './actions/Icon';
+export { BrandIcon, type BrandIconProps } from './actions/BrandIcon';
+export { Button, type ButtonProps } from './actions/Button';
+export {
+  DropdownMenu,
+  type DropdownMenuEntry,
+  type DropdownMenuProps,
+} from './actions/DropdownMenu';
+export { Icon, type IconProps } from './actions/Icon';
+export { IconButton, type IconButtonProps } from './actions/IconButton';
+export type { BrandName, IconName } from './actions/icons';
+export { Link, type LinkProps } from './actions/Link';
+export { LinkProvider, type LinkProviderProps, type RouterLinkProps } from './actions/LinkProvider';
 export { AppShell, type AppShellNavItem, type AppShellProps } from './layout/AppShell';
 export { Cluster, type ClusterProps } from './layout/Cluster';
 export { Divider, type DividerProps } from './layout/Divider';

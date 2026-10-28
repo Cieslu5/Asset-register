@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ClipboardList, Laptop, MapPin, Settings, Tags, Users } from 'lucide-react';
 import { Text } from '../text/Text';
 import { AppShell } from './AppShell';
 import { Grid } from './Grid';
@@ -17,12 +16,12 @@ const meta = {
     openMenuLabel: 'Open menu',
     closeMenuLabel: 'Close menu',
     navigation: [
-      { href: '#equipment', label: 'Equipment', icon: Laptop, current: true },
-      { href: '#protocols', label: 'Protocols', icon: ClipboardList },
-      { href: '#employees', label: 'Employees', icon: Users },
-      { href: '#locations', label: 'Locations', icon: MapPin },
-      { href: '#categories', label: 'Categories', icon: Tags },
-      { href: '#settings', label: 'Settings', icon: Settings },
+      { href: '#equipment', label: 'Equipment', icon: 'laptop', current: true },
+      { href: '#protocols', label: 'Protocols', icon: 'clipboard-list' },
+      { href: '#employees', label: 'Employees', icon: 'users' },
+      { href: '#locations', label: 'Locations', icon: 'map-pin' },
+      { href: '#categories', label: 'Categories', icon: 'tags' },
+      { href: '#settings', label: 'Settings', icon: 'settings' },
     ],
     topBar: <Text variant="muted">Demo organization</Text>,
     children: (

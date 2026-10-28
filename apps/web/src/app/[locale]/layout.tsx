@@ -7,6 +7,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { ReactNode } from 'react';
 import { routing } from '@/i18n/routing';
 import '../globals.css';
+import { Providers } from './providers';
 
 const plexSans = IBM_Plex_Sans({
   subsets: ['latin', 'latin-ext'],
@@ -47,7 +48,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <body>
         <NextIntlClientProvider>
           <FormatProvider locale={FORMAT_LOCALES[locale]} timeZone="Europe/Warsaw">
-            {children}
+            <Providers>{children}</Providers>
           </FormatProvider>
         </NextIntlClientProvider>
       </body>
