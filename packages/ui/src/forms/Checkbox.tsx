@@ -8,6 +8,8 @@ import type { FieldControlProps } from './field';
 export interface CheckboxProps extends FieldControlProps<boolean> {
   /** Etykieta przy polu; w FormField z układem `inline` podaje ją FormField. */
   label?: string;
+  /** Gdy pole nie ma widocznej etykiety, np. w wierszu tabeli. */
+  'aria-label'?: string;
 }
 
 export function Checkbox({
@@ -21,6 +23,7 @@ export function Checkbox({
   disabled,
   required,
   label,
+  'aria-label': ariaLabel,
   'aria-describedby': describedBy,
 }: CheckboxProps) {
   const generatedId = useId();
@@ -34,6 +37,7 @@ export function Checkbox({
       onCheckedChange={(checked) => onChange(checked === true)}
       onBlur={onBlur}
       aria-invalid={invalid}
+      aria-label={ariaLabel}
       aria-describedby={describedBy}
       className="peer inline-flex size-4 shrink-0 items-center justify-center rounded-sm border border-line-strong bg-surface text-on-accent transition-colors duration-(--duration-fast) hover:border-ink-subtle focus-visible:outline-offset-1 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-danger data-[state=checked]:border-accent data-[state=checked]:bg-accent"
       {...(name !== undefined && { name })}

@@ -54,3 +54,18 @@ export {
   type StepperFormTexts,
 } from './forms/StepperForm';
 export { Stepper, type StepperProps, type StepperStep } from './navigation/Stepper';
+export {
+  DataTable,
+  type DataTableColumn,
+  type DataTableError,
+  type DataTableProps,
+  type DataTableSelection,
+  type DataTableSort,
+} from './data/DataTable';
+export { DetailList, type DetailItem, type DetailListProps } from './data/DetailList';
+export { DetailSection, type DetailSectionProps } from './data/DetailSection';
+export { EmptyState, type EmptyStateProps } from './data/EmptyState';
+export { Pagination, type PaginationProps, type PaginationTexts } from './data/Pagination';
+export { Skeleton, type SkeletonProps } from './data/Skeleton';
+export { StatusBadge, type StatusBadgeProps, type StatusTone } from './data/StatusBadge';
+export { Timeline, type TimelineEntry, type TimelineProps } from './data/Timeline';
