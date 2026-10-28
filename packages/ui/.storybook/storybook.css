@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+@import '../src/tokens.css';
+
+@source '../src';
+
+/* W aplikacji te zmienne ustawia next/font; tutaj fonty przychodzą z @fontsource. */
+:root {
+  --font-plex-sans: 'IBM Plex Sans';
+  --font-plex-mono: 'IBM Plex Mono';
+}

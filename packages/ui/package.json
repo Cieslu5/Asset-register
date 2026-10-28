@@ -11,6 +11,8 @@
     "./tokens.css": "./src/tokens.css"
   },
   "scripts": {
+    "dev": "storybook dev -p 6006 --no-open",
+    "build": "storybook build --quiet",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
@@ -22,10 +24,22 @@
     "react": "^19.2.0"
   },
   "devDependencies": {
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "@fontsource/ibm-plex-sans": "5.3.0",
     "@repo/eslint-config": "workspace:*",
+    "@storybook/addon-a11y": "10.6.5",
+    "@storybook/addon-docs": "10.6.5",
+    "@storybook/addon-themes": "10.6.5",
+    "@storybook/react-vite": "10.6.5",
+    "@tailwindcss/vite": "4.3.3",
     "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "eslint": "9.39.5",
     "react": "19.3.1",
-    "typescript": "6.0.3"
+    "react-dom": "19.3.1",
+    "storybook": "10.6.5",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3",
+    "vite": "8.3.5"
   }
 }

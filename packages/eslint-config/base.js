@@ -6,7 +6,16 @@ import { noDashSelectors } from './copy-rules.js';
 export { noDashSelectors };
 
 export const base = tseslint.config(
-  { ignores: ['**/.next/**', '**/dist/**', '**/.turbo/**', '**/coverage/**', '**/drizzle/**'] },
+  {
+    ignores: [
+      '**/.next/**',
+      '**/dist/**',
+      '**/.turbo/**',
+      '**/coverage/**',
+      '**/drizzle/**',
+      '**/storybook-static/**',
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.strict,
   {

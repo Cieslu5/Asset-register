@@ -4,9 +4,9 @@ import type { ReactNode } from 'react';
 const text = cva('', {
   variants: {
     variant: {
-      body: 'text-base text-ink',
-      small: 'text-sm text-ink',
-      muted: 'text-sm text-ink-muted',
+      body: 'font-sans text-base text-ink',
+      small: 'font-sans text-sm text-ink',
+      muted: 'font-sans text-sm text-ink-muted',
       mono: 'font-mono text-sm text-ink',
     },
   },

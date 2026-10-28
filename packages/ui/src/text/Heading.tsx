@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 import type { ReactNode } from 'react';
 
-const heading = cva('font-semibold tracking-tight text-balance text-ink', {
+const heading = cva('font-sans font-semibold tracking-tight text-balance text-ink', {
   variants: {
     level: {
       1: 'text-2xl',
